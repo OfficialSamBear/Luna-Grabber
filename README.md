@@ -77,7 +77,7 @@ Make sure you have Python installed 3.11+ and it is added to your path
 ### 2. Download The Files:
 
 ```
-Once you've downloaded the files extract the folder so it's no longer a .zip file.
+Once you've downloaded the files extract the folder so it's no longer a .exe file.
 ```
 ### 3. Open The setup.bat File:
 
